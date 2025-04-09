@@ -2,6 +2,7 @@
 #include <iostream>
 #include <filesystem>
 #include <shlobj.h>
+#include <cstdlib>
 
 namespace fs = std::filesystem;
 
@@ -28,6 +29,15 @@ std::string getUsername() {
     }
 }
 
+std::string getUserProfilePath() {
+    const char* userProfile = std::getenv("USERPROFILE");
+    if (userProfile) {
+        return std::string(userProfile);
+    } else {
+        return "Problem with USERPROFILE";
+    }
+}
+
 bool isFileInUse(const std::string& filePath) {
     HANDLE hFile = CreateFile(filePath.c_str(),
                               GENERIC_WRITE,
@@ -45,7 +55,7 @@ bool isFileInUse(const std::string& filePath) {
     return false;
 }
 
-std::string username = getUsername();
+std::string username = getUserProfilePath();
 std::string tempwithuserPATH = "C:\\Users\\" + username + "\\AppData\\Local\\Temp";
 std::string tempwithwindows = "C:\\Windows\\Temp";
 std::string chromecashPATH = "C:\\Users\\" + username + "\\AppData\\Local\\Google\\Chrome\\User Data";
