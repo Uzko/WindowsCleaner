@@ -29,12 +29,12 @@ std::string getUsername() {
     }
 }
 
-std::string getUserProfilePath() {
-    const char* userProfile = std::getenv("USERPROFILE");
-    if (userProfile) {
-        return std::string(userProfile);
+std::string getUserProfilePath()а {
+    const char* username = std::getenv("USERNAME");
+    if (username) {
+        return std::string(username);
     } else {
-        return "Problem with USERPROFILE";
+        return "UnknownUser";
     }
 }
 
