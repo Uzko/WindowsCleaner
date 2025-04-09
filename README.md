@@ -1,7 +1,7 @@
-###How to launch the program correctly?
+### How to launch the program correctly?
 Run the application as Administrator and follow the instructions in the app.
 
-###Features
+### Features
 
 Delete User Temp files
 Delete Windows Temp files
